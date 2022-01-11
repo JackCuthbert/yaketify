@@ -84,15 +84,16 @@ const Home: NextPage = () => {
     <div className="min-h-screen bg-blue-50 pt-12 pb-12">
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-12 text-center">
-          <h1 className="font-black text-4xl mb-2">Yaketify</h1>
-          <p className="text-xl mb-4">Thanks, Richard.</p>
-          <p className="text-sm text-gray-500">
-            All transcoding is done locally in your browser.
+          <h1 className="font-black text-5xl mb-4">Yaketify</h1>
+          <p className="text-xl mb-4 text-gray-800 max-w-xl mx-auto">
+            Ever wanted to put Yakety Sax over your silent screen recordings? Me
+            neither!
           </p>
         </div>
 
-        <div className="mb-12 text-center">
-          <div className="bg-white rounded-2xl shadow-xl shadow-blue-300/10 px-6 py-8 mb-12">
+        <div className="text-center">
+          {/* Input container */}
+          <div className="bg-white rounded-2xl shadow-xl shadow-blue-300/10 px-6 py-8 mb-4">
             <input
               ref={fileElementRef}
               // TODO: Clean up this mess
@@ -110,13 +111,18 @@ const Home: NextPage = () => {
             />
           </div>
 
-          <div className="flex space-x-6 items-center justify-center">
+          <p className="text-sm text-gray-500 mb-8">
+            All transcoding is done locally in your browser.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex space-x-6 items-center justify-center mb-16">
             <button
               onClick={processVideo}
-              className="inline-flex items-center space-x-4 bg-blue-500 shadow-lg shadow-blue-500/50 text-lg text-blue-50 px-6 py-3 rounded-lg disabled:opacity-80 disabled:cursor-not-allowed"
+              className="inline-flex items-center space-x-4 bg-blue-700 shadow-lg shadow-blue-700/50 text-lg text-blue-50 px-6 py-3 rounded-lg disabled:opacity-60 disabled:cursor-not-allowed hover:bg-blue-800"
               disabled={!transcodeAvailable}
             >
-              <span>Yaketify!</span>
+              <span>Yaketify</span>
               {isTranscoding && <Spinner />}
             </button>
 
