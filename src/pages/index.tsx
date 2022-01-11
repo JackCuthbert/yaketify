@@ -51,7 +51,9 @@ const Home: NextPage = () => {
 
     if (sourceUrl == null) return
     setIsTranscoding(true)
-    await ffmpeg.load()
+    if (!ffmpeg.isLoaded()) {
+      await ffmpeg.load()
+    }
 
     ffmpeg.FS('writeFile', 'in.mp4', await fetchFile(sourceUrl))
     ffmpeg.FS('writeFile', 'in.mp3', await fetchFile(YAKETY_FILE_URL))
