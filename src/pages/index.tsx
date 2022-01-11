@@ -81,7 +81,12 @@ const Home: NextPage = () => {
     !isTranscoding && sourceUrl != null && destinationUrl == null
 
   return (
-    <div className="min-h-screen bg-blue-50 pt-12 pb-12">
+    <div
+      style={{
+        backgroundImage: 'url("/bg-pattern.png")'
+      }}
+      className="min-h-screen pt-16 pb-12"
+    >
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-12 text-center">
           <h1 className="font-black text-5xl mb-4">Yaketify</h1>
