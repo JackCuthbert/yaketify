@@ -1,8 +1,10 @@
 import '../styles/globals.css'
+import '../styles/github-corner.css'
 import React from 'react'
 import type { AppProps } from 'next/app'
 
 import Seo from '@bradgarropy/next-seo'
+import { GitHubCorner } from '../components/GitHubCorner'
 
 const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL
 const isVercel = vercelUrl != null
@@ -33,6 +35,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           card: 'summary'
         }}
       />
+      <GitHubCorner repoUrl="https://github.com/JackCuthbert/yaketify" />
       <Component {...pageProps} />
     </>
   )
