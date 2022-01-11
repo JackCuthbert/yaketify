@@ -1,15 +1,38 @@
 import '../styles/globals.css'
 import React from 'react'
 import type { AppProps } from 'next/app'
-import Head from 'next/head'
+
+import Seo from '@bradgarropy/next-seo'
+
+const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+const isVercel = vercelUrl != null
+
+function getUrl(): string {
+  if (typeof window === 'undefined') {
+    return isVercel ? `https://${vercelUrl}` : ''
+  }
+
+  return isVercel
+    ? `https://${vercelUrl}`
+    : window.location.href.slice(0, window.location.href.length - 1)
+}
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
-      <Head>
-        <title>Yaketify</title>
-        <link rel="icon" type="image/png" href="/saxophone.png" />
-      </Head>
+      <Seo
+        title="Yaketify"
+        description="Ever wanted to put Yakety Sax over your silent screen recordings? Me neither!"
+        icon="/saxophone.png"
+        facebook={{
+          image: getUrl() + '/saxophone.png',
+          type: 'website'
+        }}
+        twitter={{
+          image: getUrl() + '/saxophone.png',
+          card: 'summary'
+        }}
+      />
       <Component {...pageProps} />
     </>
   )
